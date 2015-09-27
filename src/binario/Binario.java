@@ -23,6 +23,9 @@ public class Binario {
          int valor, resto;
         
         //COMENTARIO NUMBER ONE 
+         
+         
+         //cometario number two
         
         do{
             do{
