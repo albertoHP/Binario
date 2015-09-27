@@ -22,6 +22,7 @@ public class Binario {
         int bits[][]= new int[1][8];
          int valor, resto;
         
+        //COMENTARIO NUMBER ONE 
         
         do{
             do{
