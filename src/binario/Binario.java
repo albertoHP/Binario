@@ -21,12 +21,7 @@ public class Binario {
         Scanner leer = new Scanner(System.in);
         int bits[][]= new int[1][8];
          int valor, resto;
-        
-        //COMENTARIO NUMBER ONE 
-         
-         
-         //cometario number two
-        
+       
         do{
             do{
             System.out.println("Ingrese un numero en base decimal porfavor:");
