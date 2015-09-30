@@ -7,6 +7,7 @@ package binario;
 import java.util.Scanner;
 import binario.Pelota;
 import java.util.InputMismatchException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author alberto
@@ -18,8 +19,8 @@ public class Binario {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("¡Bienvenido al transformador!");
-        int respuesta, seguir;
+        JOptionPane.showMessageDialog(null,"Bienvenido al transformador");
+        int  respuesta, seguir;
         
         int bits[][]= new int[1][8];
          int valor, resto;
@@ -36,13 +37,22 @@ public class Binario {
                Scanner leer = new Scanner(System.in);
                try
                {
-                System.out.println("Ingrese un numero en base decimal porfavor:");
-                respuesta = leer.nextInt();
+                  
+                do{
+                    respuesta=Integer.parseInt(JOptionPane.showInputDialog("Ingrese un" +
+               " numero en base decimal"));
+                    if(respuesta <0 || respuesta>255){
+                        JOptionPane.showMessageDialog(null, "¡Numero fuera de rango!",
+  "Transformador Binario", JOptionPane.WARNING_MESSAGE);
+                    }
+                }while(respuesta <0 || respuesta>255);   
+                
                 break;
             }
-               catch(InputMismatchException in)
+               catch(NumberFormatException in)
                {
-               System.out.println("Ingrese un numero porfavor"); 
+               JOptionPane.showMessageDialog(null, "¡El valor ingresado no es un numero!",
+  "Transformador Binario", JOptionPane.WARNING_MESSAGE);
             }
            }while(true); 
             
@@ -73,7 +83,8 @@ public class Binario {
             
             
             if(i>=0 && i<=7 || respuesta==0){
-                System.out.println("Su numero en base decimal, transformado a codigo binario es:");
+                JOptionPane.showMessageDialog(null, "El codigo binario es:",
+  "Transformador Binario", JOptionPane.INFORMATION_MESSAGE);
               for( i=0; i<=7;i++){
                 
                 System.out.print(bits[0][i]+"\t");
@@ -85,28 +96,25 @@ public class Binario {
             }
             
            
-        do{
-            Scanner leer = new Scanner(System.in);
-            try{
-                System.out.println("¿Desea ingresar otro numero? 1-si 2-no");
-            seguir = leer.nextInt();
-            break;
-            }
-            catch(InputMismatchException in)
-                    {
-                        System.out.println("Ingrese un numero porfavor");
-                        
-                    }
-         
-        }while(true);
-            
         
             
-        
+                
+                 seguir=JOptionPane.showConfirmDialog(null,"¿Desea ingresar otro numero?");
+              if (JOptionPane.OK_OPTION == seguir){
+   
+                seguir=1;
+                }
+                 else{
+    
+                seguir=2;
+              }
+           
+            
         
         }while(seguir==1);
         
-        System.out.println("Gracias por utilizar el transformador.");
+        JOptionPane.showMessageDialog(null, "Gracias por utilizar el transformador.",
+  "Transformador Binario", JOptionPane.WARNING_MESSAGE);
         
          }
          
