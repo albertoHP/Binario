@@ -5,6 +5,7 @@
  */
 package binario;
 import java.util.Scanner;
+import binario.Pelota;
 /**
  *
  * @author alberto
@@ -22,7 +23,16 @@ public class Binario {
         int bits[][]= new int[1][8];
          int valor, resto;
        
+         try{
         do{
+            
+            
+           
+            
+            
+            
+            
+            
             do{
             System.out.println("Ingrese un numero en base decimal porfavor:");
             respuesta = leer.nextInt();
@@ -80,9 +90,13 @@ public class Binario {
         
         System.out.println("Gracias por utilizar el transformador.");
         
+         }
+         catch(Exception e){
+             System.out.println("Usted no ha ingresado un numero, El programa se cerrara.");
+         }
         
         
-        
+         
         
         
     }
