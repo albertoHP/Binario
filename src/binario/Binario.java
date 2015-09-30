@@ -6,6 +6,7 @@
 package binario;
 import java.util.Scanner;
 import binario.Pelota;
+import java.util.InputMismatchException;
 /**
  *
  * @author alberto
@@ -19,11 +20,11 @@ public class Binario {
         // TODO code application logic here
         System.out.println("¡Bienvenido al transformador!");
         int respuesta, seguir;
-        Scanner leer = new Scanner(System.in);
+        
         int bits[][]= new int[1][8];
          int valor, resto;
        
-         try{
+         
         do{
             
             
@@ -31,16 +32,22 @@ public class Binario {
             
             
             
-            
-            
-            do{
-            System.out.println("Ingrese un numero en base decimal porfavor:");
-            respuesta = leer.nextInt();
-            
-            if(respuesta<0 || respuesta>256){
-                System.out.println("ERROR");
+           do{
+               Scanner leer = new Scanner(System.in);
+               try
+               {
+                System.out.println("Ingrese un numero en base decimal porfavor:");
+                respuesta = leer.nextInt();
+                break;
             }
-        }while(respuesta<0 || respuesta>256);
+               catch(InputMismatchException in)
+               {
+               System.out.println("Ingrese un numero porfavor"); 
+            }
+           }while(true); 
+            
+                
+           
             
           int i=7, cont=0;
             do{
@@ -78,28 +85,32 @@ public class Binario {
             }
             
            
-            
         do{
-            System.out.println("¿Desea ingresar otro numero? 1-si 2-no");
-        seguir = leer.nextInt();
-        if(seguir<=0 || seguir>2){
-            System.out.println("ERROr");
-        }
-        }while(seguir<=0 || seguir>2);
+            Scanner leer = new Scanner(System.in);
+            try{
+                System.out.println("¿Desea ingresar otro numero? 1-si 2-no");
+            seguir = leer.nextInt();
+            break;
+            }
+            catch(InputMismatchException in)
+                    {
+                        System.out.println("Ingrese un numero porfavor");
+                        
+                    }
+         
+        }while(true);
+            
+        
+            
+        
+        
         }while(seguir==1);
         
         System.out.println("Gracias por utilizar el transformador.");
         
          }
-         catch(Exception e){
-             System.out.println("Usted no ha ingresado un numero, El programa se cerrara.");
-         }
-        
-        
          
-         
-        
         
     }
     
-}
+
