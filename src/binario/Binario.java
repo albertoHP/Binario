@@ -83,13 +83,12 @@ public class Binario {
             
             
             if(i>=0 && i<=7 || respuesta==0){
-                JOptionPane.showMessageDialog(null, "El codigo binario es:",
-  "Transformador Binario", JOptionPane.INFORMATION_MESSAGE);
-              for( i=0; i<=7;i++){
-                
-                System.out.print(bits[0][i]+"\t");
-                bits[0][i]=0;
-            } 
+                String result="";
+           for (int j=0; j<= 7; j++)
+            {
+          result+= bits[0][j] + "\t";
+}
+JOptionPane.showMessageDialog(null,"El codigo binario es: "+result);
                System.out.println();  
             }else{
                 System.out.println("Error");
